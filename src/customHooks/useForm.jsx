@@ -22,11 +22,13 @@ const useForm = (initialState) => {
   const handleSubmitEvent = (event)=>{
     event.preventDefault();
 
+    // validataion
+
     if(formData.name===""){
         setError(prev => ({
           ...prev,
           name:"name",
-          message: "Please Enter Name!"
+          message: "Name is Required!"
         }));
         return;
     }
@@ -34,7 +36,7 @@ const useForm = (initialState) => {
       setError(prev => ({
         ...prev,
         name:"email",
-        message: "Please Enter email!"
+        message: "Email is Required!"
       }));
         return;
     }
@@ -43,7 +45,7 @@ const useForm = (initialState) => {
       setError(prev => ({
         ...prev,
         name:"age",
-        message: "Please Enter your age!"
+        message: "Age is Required!"
       }));
         return;
     }
@@ -60,7 +62,7 @@ const useForm = (initialState) => {
       setError(prev => ({
         ...prev,
         name:"guestName",
-        message: "Please Enter guestName!"
+        message: "Guest Name is Required"
       }));
         return;
     }
