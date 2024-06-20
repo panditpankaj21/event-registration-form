@@ -77,7 +77,7 @@ const FormPage = ({
                     className="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-3 px-3 rounded-3xl mb-5"
                     type="submit"
                 >
-                    Schedule Event
+                    See Summay
                 </button>
             </form>
             </div>
