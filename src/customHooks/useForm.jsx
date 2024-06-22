@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useForm = (initialState) => {
-    const [isSubmit, setIsSubmit] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const [error, setError] = useState({
     name:'',
@@ -21,7 +21,7 @@ const useForm = (initialState) => {
 
   const handleSubmitEvent = (event)=>{
     event.preventDefault();
-
+    
     // validataion
 
     if(formData.name===""){
@@ -57,6 +57,15 @@ const useForm = (initialState) => {
       }));
       return;
     }
+    
+    if(formData.isGuest==="select"){
+      setError(prev => ({
+        ...prev,
+        name: "isGuest",
+        message: "Please select yes or no!"
+      }))
+      return;
+    }
 
     if(formData.isGuest==="yes" && formData.guestName===""){
       setError(prev => ({
@@ -64,7 +73,7 @@ const useForm = (initialState) => {
         name:"guestName",
         message: "Guest Name is Required"
       }));
-        return;
+      return;
     }
 
     setError(prev => ({

@@ -7,7 +7,7 @@ const FormPage = ({
     formData,
     error
 })=>{
-    console.log(formData.isGuest)
+    
     return(
         <div className="flex justify-center items-start pt-10 h-screen bg-gray-200">
             <div className="w-[50%] h-max p-5 bg-white shadow-2xl">
@@ -53,31 +53,36 @@ const FormPage = ({
                     <select 
                         name="isGuest" 
                         onChange={handleChange}
-                        value={formData.isGuest}
+                        defaultValue="select"
                         className="border-gray-200 border-2 rounded-lg p-1 ml-3"
                     >
+                        <option disabled value="select">select</option>
                         <option value="yes">yes</option>
                         <option value="no">no</option>
                     </select>
+                {error.name==="isGuest" && 
+                <ErrorMessage mssg={error.message}/>}
                 </div>
 
                 {formData.isGuest==="yes" && 
-                    <Input
-                        type="text"
-                        name="guestName"
-                        value= {formData.guestName}
-                        onChange={handleChange}
-                        label="Guest Name *"
-                    />
+                    <>
+                        <Input
+                            type="text"
+                            name="guestName"
+                            value= {formData.guestName}
+                            onChange={handleChange}
+                            label="Guest Name *"
+                        />
+                        {error.name==="guestName" && 
+                        <ErrorMessage mssg={error.message}/>}
+                    </>
                 }
-                {error.name==="guestName" && 
-                <ErrorMessage mssg={error.message}/>}
 
                 <button  
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-3 px-3 rounded-3xl mb-5"
+                    className="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-sm py-2 px-4 rounded-lg mb-3 mt-4"
                     type="submit"
                 >
-                    See Summay
+                    Submit
                 </button>
             </form>
             </div>

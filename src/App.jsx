@@ -15,7 +15,7 @@ function App() {
     name: '',
     email: '',
     age: '',
-    isGuest: "no",
+    isGuest: "select",
     guestName: '',
   })
 
